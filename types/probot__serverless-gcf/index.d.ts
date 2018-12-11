@@ -4,9 +4,11 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.1
 
+/// <reference types="express-serve-static-core" />
+
 declare module '@probot/serverless-gcf'
 
-import { Request, Response } from 'express'
+import * as core from "express-serve-static-core";
 import { ApplicationFunction } from 'probot'
 
-export function serverless(appFn: ApplicationFunction | String): (request: Request, response: Response) => Promise<any>
+export function serverless(appFn: ApplicationFunction | String): (request: core.Request, response: core.Response) => Promise<any>
