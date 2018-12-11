@@ -145,6 +145,7 @@ conn1.close(function (err) {});
 conn1.close(true, function (err) {});
 conn1.collection('name').$format(999);
 conn1.model('myModel', new mongoose.Schema({}), 'myCol').find();
+conn1.deleteModel('myModel');
 conn1.models.myModel.findOne().exec();
 interface IStatics {
   staticMethod1: (a: number) => string;
@@ -491,12 +492,12 @@ preHookTestSchemaArr.push(
 );
 
 schema
-.post('save', function (error, doc, next) {
+.post('save', function (error: mongoose.Error, doc: mongoose.Document, next: (err?: mongoose.NativeError) => void) {
   error.stack;
   doc.model;
   next.apply;
 })
-.post('save', function (doc: mongoose.Document, next: Function) {
+.post('save', function (doc: mongoose.Document, next: (err?: mongoose.NativeError) => void) {
   doc.model;
   next(new Error());
 })
@@ -1079,6 +1080,7 @@ query.find().where('age').in([20, 21]);
 query.find().in('age', [20, 21]);
 query.nor([{ color: 'green' }, { status: 'ok' }]).nor([]);
 query.or([{ color: 'red' }, { status: 'emergency' }]).or([]);
+query.find({ color: 'blue' }).orFail();
 query.where('loc').within().polygon([10,20], [13, 25], [7,15]);
 query.polygon('loc', [10,20], [13, 25], [7,15]);
 query.findOne().populate('owner').exec(function (err, kitten) {
