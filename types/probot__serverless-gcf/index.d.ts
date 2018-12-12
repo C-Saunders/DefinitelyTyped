@@ -2,6 +2,7 @@
 // Project: https://github.com/probot/serverless-gcf
 // Definitions by: Charlie Saunders <https://github.com/C-Saunders>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.2
 
 /// <reference types="express-serve-static-core" />
 
