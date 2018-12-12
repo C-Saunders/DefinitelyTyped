@@ -16,7 +16,8 @@
         "forceConsistentCasingInFileNames": true,
         "paths": {
             "@probot/serverless-gcf": ["probot__serverless-gcf"]
-        }
+        },
+        "strictFunctionTypes": true
     },
     "files": [
         "index.d.ts",
